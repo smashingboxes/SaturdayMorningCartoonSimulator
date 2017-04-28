@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "mongo-mac": "mkdir mongo-db; mongod --dbpath mongo-db",
+    "mongo-win": "md mongo-db & \"C:/Program Files/MongoDb/Server/3.2/bin/mongod.exe\" --dbpath mongo-db"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.20",
+    "morgan": "^1.7.0"
+  }
+}
