@@ -3,7 +3,7 @@ import React from 'react';
 import { render } from 'react-dom';
 
 // CSS
-//import './css/style.css';
+import './css/style.css';
 
 // routes
 import routes from './router';
