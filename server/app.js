@@ -34,7 +34,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/cartoons', routes);
+app.use('/shows', routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

@@ -3,6 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const Show = require('./models').Show;
+const _ = require('lodash');
 
 router.param('sID', (req, res, next, id) => {
   Show.findById(id, (err, doc) => {
@@ -44,7 +45,6 @@ router.get('/', (req, res, next) => {
 // POST /shows
 // Route for creating shows
 router.post('/', (req, res) => {
-  console.log('req.body', req.body);
   var show = new Show(req.body);
   show.save((err, show, next) => {
     if (err) {
@@ -60,6 +60,29 @@ router.post('/', (req, res) => {
 router.get('/:sID', (req, res, next) => {
   res.json(req.show);
 });
+
+// GET /shows/:sID
+// Route for updating a show's data
+router.put('/:sID', (req, res) => {
+  req.show.update(req.body, (err, result) => {
+    if (err) {
+      return next(err);
+    }
+    res.json(result);
+  });
+});
+
+// DELETE /shows/:sID
+// Route for deleting a show
+router.delete('/:sID', (req, res) => {
+  const name = req.show.name;
+  req.show.remove((err) => {
+      if (err) {
+        return next(err);
+      }
+      res.send(`Deleted ${name}`);
+  });
+})
 
 // POST /shows/:sID/episodes
 // Route for creating an episode
