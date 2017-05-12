@@ -13,7 +13,20 @@ const EpisodeSchema = new Schema({
 
 const ShowSchema = new Schema({
   name: String,
+  src: String,
+  description: String,
   episodes: [EpisodeSchema]
+});
+
+const BlockSchema = new Schema({
+  show: {
+    type: Schema.ObjectId,
+    ref: 'Show'
+  }
+})
+
+const ScheduleSchema = new Schema({
+  blocks: [BlockSchema]
 });
 
 const sortEpisodes = (a, b) => {
@@ -34,5 +47,7 @@ ShowSchema.pre('save', function(next){
 });
 
 const Show = mongoose.model('show', ShowSchema);
+const Schedule = mongoose.model('schedule', ScheduleSchema);
 
 module.exports.Show = Show;
+module.exports.Schedule = Schedule;
