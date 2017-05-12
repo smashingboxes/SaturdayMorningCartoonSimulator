@@ -3,7 +3,7 @@ import React from 'react';
 import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 
 // Components
-import App from './components/App';
+import AppContainer from './containers/AppContainer';
 import Home from './components/Home';
 import Watch from './components/Watch';
 import Curate from './components/Curate';
@@ -13,7 +13,7 @@ import Show from './components/curate/Show';
 
 const routes = (
   <Router history={browserHistory}>
-    <Route component={App}>
+    <Route component={AppContainer}>
       <Route path="/" component={Home} />
       <Route path="watch" component={Watch} />
       <Route path="curate" component={Curate} >

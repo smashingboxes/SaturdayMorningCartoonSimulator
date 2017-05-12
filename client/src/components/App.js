@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import NavLink from './NavLink'
+import NavLink from './NavLink';
+import LoginGoogleContainer from '../containers/login/LoginGoogleContainer';
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class App extends Component {
   // }
 
   render() {
+    const {actions, user} = this.props;
     return (
       <div className="container">
         <header>
@@ -31,6 +33,16 @@ class App extends Component {
             <li><NavLink to="/watch">Watch</NavLink></li>
             <li><NavLink to="/curate">Curate</NavLink></li>
           </ul>
+          { user.id === undefined ?
+            <div>
+              <LoginGoogleContainer />
+            </div>
+            :
+            <div onClick={actions.userLogout}>
+              logout
+            </div>
+          }
+
         </header>
         { this.props.children }
       </div>
