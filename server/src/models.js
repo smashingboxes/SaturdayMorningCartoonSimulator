@@ -47,7 +47,7 @@ ShowSchema.pre('save', function(next){
 });
 
 const Show = mongoose.model('show', ShowSchema);
-const Block = mongoose.model('block', BlockSchema);
+const Schedule = mongoose.model('schedule', ScheduleSchema);
 
 module.exports.Show = Show;
-module.exports.Block = Block;
+module.exports.Schedule = Schedule;

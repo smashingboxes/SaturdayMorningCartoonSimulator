@@ -28,7 +28,8 @@ router.param('eID', (req, res, next, id) => {
     return next(err);
   }
   next();
-})
+});
+
 // GET /shows
 // Return all the shows
 router.get('/', (req, res, next) => {
@@ -82,7 +83,7 @@ router.delete('/:sID', (req, res) => {
       }
       res.send(`Deleted ${name}`);
   });
-})
+});
 
 // POST /shows/:sID/episodes
 // Route for creating an episode
