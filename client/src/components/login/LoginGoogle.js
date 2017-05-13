@@ -28,7 +28,6 @@ class LoginGoogle extends Component {
 }
 
 LoginGoogle.propTypes = {
-  user: PropTypes.object,
   actions: PropTypes.object.isRequired
 }
 

@@ -6,7 +6,7 @@ import * as actions from '../actions'
 
 
 const mapStateToProps = state => ({
-  user: state.login.user
+  login: state.get('login')
 })
 
 const mapDispatchToProps = dispatch => ({

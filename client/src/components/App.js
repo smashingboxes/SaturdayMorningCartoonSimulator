@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavLink from './NavLink';
 import LoginGoogleContainer from '../containers/login/LoginGoogleContainer';
+import Immutable from 'immutable';
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +25,8 @@ class App extends Component {
   // }
 
   render() {
-    const {actions, user} = this.props;
+    const {actions, login} = this.props;
+    const userId = login.getIn(['user', 'id']);
     return (
       <div className="container">
         <header>
@@ -33,13 +35,14 @@ class App extends Component {
             <li><NavLink to="/watch">Watch</NavLink></li>
             <li><NavLink to="/curate">Curate</NavLink></li>
           </ul>
-          { user.id === undefined ?
-            <div>
-              <LoginGoogleContainer />
-            </div>
-            :
+          { userId ?
+            //TODO: make this a component
             <div onClick={actions.userLogout}>
               logout
+            </div>
+            :
+            <div>
+              <LoginGoogleContainer />
             </div>
           }
 
