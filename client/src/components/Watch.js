@@ -6,6 +6,6 @@ const Watch = () => {
       <h2>Watch</h2>
     </div>
   );
-}
+};
 
 export default Watch;

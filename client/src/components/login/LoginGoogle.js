@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GoogleLogin from 'react-google-login';
+/*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 
 class LoginGoogle extends Component {
 
   success = (response) => {
-    console.log('success', response);
     this.props.actions.userLogin(response.googleId);
-  }
+  };
+
   failure = (response) => {
-    console.log('failure', response);
-  }
+    console.error('failure', response);
+  };
 
   render() {
     const success = this.success;
@@ -23,12 +24,12 @@ class LoginGoogle extends Component {
         onSuccess={success}
         onFailure={failure}
       />
-    )
+    );
   }
 }
 
 LoginGoogle.propTypes = {
   actions: PropTypes.object.isRequired
-}
+};
 
 export default LoginGoogle;

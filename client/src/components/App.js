@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import NavLink from './NavLink';
 import LoginGoogleContainer from '../containers/login/LoginGoogleContainer';
-import Immutable from 'immutable';
 
 class App extends Component {
   constructor(props) {
@@ -52,5 +53,11 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  children: PropTypes.object,
+  login: ImmutablePropTypes.map,
+  actions: PropTypes.object.isRequired
+};
 
 export default App;

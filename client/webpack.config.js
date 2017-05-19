@@ -6,6 +6,14 @@ module.exports = {
   },
 
   module: {
+    preLoaders: [
+      // Javascript
+      {
+        test: /\.js(x)?$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {
         test: /\.js$/,
@@ -20,5 +28,9 @@ module.exports = {
   },
   postcss: function() {
     return [];
+  },
+  eslint: {
+    failOnWarning: false,
+    failOnError: true
   }
 };

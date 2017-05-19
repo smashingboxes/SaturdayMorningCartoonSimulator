@@ -1,19 +1,17 @@
-import React from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import App from '../components/App'
-import * as actions from '../actions'
-
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import App from '../components/App';
+import * as user from '../actions/user';
 
 const mapStateToProps = state => ({
   login: state.get('login')
-})
+});
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(actions, dispatch)
-})
+  actions: bindActionCreators(user, dispatch)
+});
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App)
+)(App);

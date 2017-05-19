@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import NavLink from './NavLink';
+import PropTypes from 'prop-types';
 
 class Curate extends Component {
   render() {
@@ -15,5 +15,9 @@ class Curate extends Component {
     );
   }
 }
+
+Curate.propTypes = {
+  children: PropTypes.object
+};
 
 export default Curate;
