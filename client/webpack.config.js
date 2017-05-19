@@ -23,6 +23,11 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader!postcss-loader'
+      },
+      {
+         test: /\.(jpg|jpeg|gif|png|ico)$/,
+         exclude: /node_modules/,
+         loader:'file-loader?name=img/[path][name].[ext]&context=./src/images'
       }
     ]
   },
